@@ -107,6 +107,7 @@ dependencies {
   api appProject
   implementation platform("com.google.firebase:firebase-bom:${ReactNative.ext.getVersion("firebase", "bom")}")
   implementation "com.google.firebase:firebase-messaging"
+  implementation 'com.mapp.sdk:mapp-android:6.0.17-special1'
 }
 
 ReactNative.shared.applyPackageVersion()
