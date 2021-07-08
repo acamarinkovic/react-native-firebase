@@ -4,7 +4,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.appoxee.push.fcm.MappMessagingService;
 import io.invertase.firebase.common.ReactNativeFirebaseEventEmitter;
-
+import com.appoxee.push.PushData;
 public class ReactNativeFirebaseMessagingService extends MappMessagingService {
   @Override
   public void onSendError(String messageId, Exception sendError) {
@@ -33,6 +33,9 @@ public class ReactNativeFirebaseMessagingService extends MappMessagingService {
 
   @Override
   public void onMessageReceived(RemoteMessage remoteMessage) {
-     super.onMessageReceived(remoteMessage);
+         PushData pushData = getData(remoteMessage);
+             if(pushData.id!=0){
+                 super.onMessageReceived(remoteMessage);
+             }
   }
 }
